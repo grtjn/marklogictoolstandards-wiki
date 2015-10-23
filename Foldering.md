@@ -6,6 +6,24 @@ Status: **Request For Comment** -> Candidate Recommendation -> Standard Recommen
 
 A standard foldering layout will allow inclusion of all MarkLogic application configuration within any build tool framework, and provide consistency. A single app layout will be deployable within a variety of tools.
 
+## Current situations
+
+Current tools use the following:-
+
+Area | Roxy | RXQ | mljsadmin
+---- | ---- | ---- | ----
+Root folder | ? | ? | tools sh files only
+Tool configuration | deploy | ? | config
+Web app folder | src/app (mixed) | ? | app
+ML modules folder | src/app (mixed) | ? | modules
+ML rest extensions | rest-api/ext | ? | rest-api/ext
+ML rest resources | rest-api/resources | ? | rest-api/resources
+ML server configuration | deploy | ? | packages
+Unit tests | test and src/test | ? | N/A
+Data folder | data | ? | data
+Documentation | ? | ? | docs
+Internal or transient | deploy | ? | node_modules
+
 ## Requirements
 
 The system MUST:-
