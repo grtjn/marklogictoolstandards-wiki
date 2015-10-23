@@ -1,5 +1,4 @@
 Back to [Home](Home)
-[Home](Home)
 
 Status: **Request For Comment** -> Candidate Recommendation -> Standard Recommendation
 
