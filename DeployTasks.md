@@ -14,6 +14,7 @@ Create application scaffolding | init/create | N/A
 Initialise tool | init | N/A
 Create config files | init | N/A
 Print config information | info | N/A
+Specify environment configuration to use | CMD ENVNAME | --conf=CONFFILE
 Create environment | bootstrap | install
 Create REST API instance (content db) | ? | --install=restapi
 Create REST API instance (modules db) | ? | --install=modulesrestapi
