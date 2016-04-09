@@ -12,12 +12,13 @@ Current tools use the following:-
 
 Area | Roxy | RXQ | mljsadmin
 ---- | ---- | ---- | ----
-Root folder | ? | ? | tools sh files only
-Tool configuration | deploy | ? | config
+Root folder | ? | ? | mljsadmin.log file only
+Tool configuration | deploy | ? | config (some in ./data/restapi.json)
 Web app folder | src/app (mixed) | ? | app
 ML modules folder | src/app (mixed) | ? | modules
 ML rest extensions | rest-api/ext | ? | rest-api/ext
 ML rest resources | rest-api/resources | ? | rest-api/resources
+ML search options | rest-api/config/options | ? | restapi/config/options
 ML server configuration | deploy | ? | packages
 Unit tests | test and src/test | ? | N/A
 Data folder | data | ? | data
