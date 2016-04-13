@@ -10,20 +10,20 @@ A standard foldering layout will allow inclusion of all MarkLogic application co
 
 Current tools use the following:-
 
-Area | Roxy | RXQ | mljsadmin
+Area | Roxy | RXQ | mljsadmin | ml-gradle
 ---- | ---- | ---- | ----
-Root folder | ? | ? | mljsadmin.log file only
-Tool configuration | deploy | ? | config (some in ./data/restapi.json)
-Web app folder | src/app (mixed) | ? | app
-ML modules folder | src/app (mixed) | ? | modules
-ML rest extensions | rest-api/ext | ? | rest-api/ext
-ML rest resources | rest-api/resources | ? | rest-api/resources
-ML search options | rest-api/config/options | ? | restapi/config/options
-ML server configuration | deploy | ? | packages
-Unit tests | test and src/test | ? | N/A
-Data folder | data | ? | data
-Documentation | ? | ? | docs
-Internal or transient | deploy | ? | node_modules
+Root folder | ? | ? | mljsadmin.log file only | project root
+Tool configuration | deploy | ? | config (some in ./data/restapi.json) | build.gradle
+Web app folder | src/app (mixed) | ? | app | N/A
+ML modules folder | src/app (mixed) | ? | modules | src/main/ml-modules
+ML rest extensions | rest-api/ext | ? | rest-api/ext | src/main/ml-modules/ext
+ML rest resources | rest-api/resources | ? | rest-api/resources | src/main/ml-modules/services
+ML search options | rest-api/config/options | ? | restapi/config/options | src/main/ml-modules/options
+ML server configuration | deploy | ? | packages | src/main/ml-config
+Unit tests | test and src/test | ? | N/A | src/test/java
+Data folder | data | ? | data | data
+Documentation | ? | ? | docs | N/A
+Internal or transient | deploy | ? | node_modules | .gradle
 
 ## Requirements
 
