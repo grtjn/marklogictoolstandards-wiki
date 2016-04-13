@@ -8,47 +8,48 @@ A developer should be able to pick up their favourite deploy tool and run the sa
 
 ## Current situation
 
-Task | Roxy/mlsound | mljsadmin
----- | ---- | ----
-Create application scaffolding | init/create | N/A
-Initialise tool | init | N/A
-Create config files | init | N/A
-Print config information | info | N/A
-Specify environment configuration to use | CMD ENVNAME | --conf=CONFFILE
-Create environment | bootstrap | install
-Create REST API instance (content db) | ? | --install=restapi
-Create REST API instance (modules db) | ? | --install=modulesrestapi
-Deploy ML modules | deploy modules | --install=modules
-Deploy web app | deploy modules | N/A (runs in node)
-Deploy rest extensions | ? | --install=extensions
-Deploy rest resources | ? | N/A
-Deploy triggers | ? | --install=triggers $
-Deploy alert config | ? | ?
-Update search options | ? | --update=searchoptions
-Update database configuration (content) | ? | --update=dbconfig
-Update database configuration (modules) | ? | --update=modulesdbconfig
-Update installed ontology | ? | --update=ontology
-Update MLJS Workplace config | ? | --update=workplace $
-Copy in content | deploy data | load or --load=/some/folder
-Remove content from server | clean | clean
-Get config from server | N/A | capture
-Get database config (content) | ? | --capture=dbconfig
-Get database config (modules) | ? | --capture=modulesdbconfig
-Get deployed ontology | N/A | --capture=ontology
-Get deployed web app config | N/A | --capture=workplace $
-Get deployed search options | N/A | --capture=searchoptions
-Get deployed triggers config | ? | --capture=triggers $
-Restart MarkLogic | restart | N/A
-Run tests | test | N/A
-Initialise application to pre-demo state | ? | reset
-Removing environment | wipe | remove
-Remove REST API (content DB) | ? | --remove=dbconfig
-Remove REST API (modules DB) | ? | --remove=modulesdbconfig
-Remove REST extensions | ? | --remove=extensions
-Remove Triggers | ? | --remove=triggers $
+Task | Roxy/mlsound | mljsadmin | ml-gradle
+---- | ---- | ---- | ----
+Create application scaffolding | init/create | N/A | mlScaffold
+Initialise tool | init | N/A | N/A
+Create config files | init | N/A | N/A
+Print config information | info | N/A | --info
+Specify environment configuration to use | CMD ENVNAME | --conf=CONFFILE | Gradle properties plugin
+Create environment | bootstrap | install | mlDeploy
+Create REST API instance (content db) | ? | --install=restapi | mlCreateResource
+Create REST API instance (modules db) | ? | --install=modulesrestapi | mlCreateResource
+Deploy ML modules | deploy modules | --install=modules | mlLoadModules or mlReloadModules
+Deploy web app | deploy modules | N/A (runs in node) | N/A
+Deploy rest extensions | ? | --install=extensions | mlLoadModules
+Deploy rest resources | ? | N/A | mlLoadModules
+Deploy triggers | ? | --install=triggers $ | mlDeployTriggers
+Deploy alert config | ? | ? | mlDeployAlertConfig
+Update search options | ? | --update=searchoptions | mlLoadModules
+Update database configuration (content) | ? | --update=dbconfig | mlDeployDatabases
+Update database configuration (modules) | ? | --update=modulesdbconfig | mlDeployDatabases
+Update installed ontology | ? | --update=ontology | N/A
+Update MLJS Workplace config | ? | --update=workplace $ | N/A
+Copy in content | deploy data | load or --load=/some/folder | Use MlcpTask or roll your own Gradle task
+Remove content from server | clean | clean | mlClearContentDatabase
+Get config from server | N/A | capture | N/A
+Get database config (content) | ? | --capture=dbconfig | N/A
+Get database config (modules) | ? | --capture=modulesdbconfig | N/A
+Get deployed ontology | N/A | --capture=ontology | N/A
+Get deployed web app config | N/A | --capture=workplace $ | N/A
+Get deployed search options | N/A | --capture=searchoptions | N/A
+Get deployed triggers config | ? | --capture=triggers $ | N/A
+Restart MarkLogic | restart | N/A | mlRestartCluster
+Run tests | test | N/A | test
+Initialise application to pre-demo state | ? | reset | Custom Gradle task
+Removing environment | wipe | remove | mlUndeploy
+Remove REST API (content DB) | ? | --remove=dbconfig | mlUndeploy
+Remove REST API (modules DB) | ? | --remove=modulesdbconfig | mlUndeploy
+Remove REST extensions | ? | --remove=extensions | mlClearModules
+Remove Triggers | ? | --remove=triggers $ | mlClearTriggers
 
 Note that $ means the function requires a server side extension. E.g. REST extension or some other functionality
 
+A note about ml-gradle tasks - because ml-gradle is a plugin, and there could be dozens, if not hundreds, of other Gradle tasks in a project, "ml" is used as a prefix for all ml-gradle tasks. Gradle also does not require typing the full task name nor is it case-sensitive - i.e. typing "gradle mlreload" will invoke "mlReloadModules" as long as no other task starts with "mlreload". 
 
 ## Requirements
 
