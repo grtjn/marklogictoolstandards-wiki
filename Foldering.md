@@ -11,7 +11,7 @@ A standard foldering layout will allow inclusion of all MarkLogic application co
 Current tools use the following:-
 
 Area | Roxy | RXQ | mljsadmin | ml-gradle
----- | ---- | ---- | ----
+---- | ---- | ---- | ---- | ----
 Root folder | ? | ? | mljsadmin.log file only | project root
 Tool configuration | deploy | ? | config (some in ./data/restapi.json) | build.gradle
 Web app folder | src/app (mixed) | ? | app | N/A
